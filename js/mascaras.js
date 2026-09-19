@@ -56,3 +56,29 @@ formulario.addEventListener("submit", function (evento) {
     "Esta e apenas uma demonstracao academica. " +
     "Nenhum dado foi enviado ou armazenado.";
 });
+
+// Feedback de sucesso do formulario
+
+formulario.addEventListener("submit", function (evento) {
+  evento.preventDefault();
+
+  if (!formulario.reportValidity()) {
+    return;
+  }
+
+  resultado.textContent =
+    "Cadastro demonstrativo validado com sucesso! " +
+    "Nenhum dado foi enviado ou armazenado.";
+
+  resultado.classList.add("visivel");
+});
+
+// Oculta a mensagem ao alterar o formulario
+
+formulario.addEventListener("input", function () {
+  resultado.classList.remove("visivel");
+});
+
+formulario.addEventListener("reset", function () {
+  resultado.classList.remove("visivel");
+});
