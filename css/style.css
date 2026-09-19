@@ -517,7 +517,3 @@ input:not(:placeholder-shown):valid {
     transform: none;
   }
 }
-    transition: none;
-  }
-
-}
