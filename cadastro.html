@@ -1,87 +1,650 @@
+
 <!doctype html>
 <html lang="pt-BR">
+
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Formulário demonstrativo para pessoas interessadas em doações e voluntariado no Conecta Social.">
+
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1">
+
+  <meta name="description"
+        content="Formulário demonstrativo para pessoas interessadas em doações e voluntariado no Conecta Social.">
+
   <title>Cadastro | Conecta Social</title>
-  <link rel="icon" href="imagens/icone-conecta-social.svg" type="image/svg+xml">
+
+  <link rel="icon"
+        href="imagens/icone-conecta-social.svg"
+        type="image/svg+xml">
+
   <link rel="stylesheet" href="css/style.css">
+
   <script src="js/mascaras.js" defer></script>
 </head>
+
 <body>
-  <a class="pular" href="#conteudo">Pular para o conteúdo principal</a>
+
+  <!-- ACESSIBILIDADE -->
+
+  <a class="pular" href="#conteudo">
+    Pular para o conteúdo principal
+  </a>
+
+
+  <!-- CABEÇALHO -->
+
   <header class="cabecalho">
+
     <div class="container topo">
-      <a class="marca" href="index.html" aria-label="Conecta Social: página inicial">
-        <img src="imagens/logo-conecta-social.svg" alt="" width="60" height="60">
+
+      <a class="marca"
+         href="index.html"
+         aria-label="Conecta Social: página inicial">
+
+        <img
+          src="imagens/logo-conecta-social.svg"
+          alt=""
+          width="60"
+          height="60">
+
         <span>Conecta Social</span>
+
       </a>
+
+
+      <!-- BOTÃO HAMBÚRGUER -->
+
+      <button
+        class="menu-toggle"
+        type="button"
+        aria-label="Abrir ou fechar menu de navegação"
+        aria-controls="menu-principal"
+        aria-expanded="false">
+
+        &#9776;
+
+      </button>
+
+
+      <!-- MENU PRINCIPAL -->
+
       <nav aria-label="Navegação principal">
-        <ul class="menu">
-          <li><a href="index.html">Início</a></li>
-          <li><a href="projetos.html">Projetos</a></li>
-          <li><a href="cadastro.html" aria-current="page">Participe</a></li>
+
+        <ul class="menu" id="menu-principal">
+
+          <li>
+
+            <a href="index.html">
+              Início
+            </a>
+
+          </li>
+
+
+          <!-- SUBMENU DE PROJETOS -->
+
+          <li class="item-submenu">
+
+            <a href="projetos.html">
+              Projetos
+            </a>
+
+            <button
+              class="submenu-toggle"
+              type="button"
+              aria-label="Mostrar opções de projetos"
+              aria-controls="submenu-projetos"
+              aria-expanded="false">
+
+              &#9662;
+
+            </button>
+
+            <ul class="submenu" id="submenu-projetos">
+
+              <li>
+
+                <a href="projetos.html">
+                  Conhecer iniciativas
+                </a>
+
+              </li>
+
+              <li>
+
+                <a href="cadastro.html">
+                  Como contribuir
+                </a>
+
+              </li>
+
+            </ul>
+
+          </li>
+
+
+          <li>
+
+            <a href="cadastro.html"
+               aria-current="page">
+
+              Participe
+
+            </a>
+
+          </li>
+
         </ul>
+
       </nav>
+
     </div>
+
   </header>
 
+
+  <!-- CONTEÚDO PRINCIPAL -->
+
   <main id="conteudo" class="container espaco">
-    <h1>Cadastro de doadores e voluntários</h1>
-    <p>Preencha o formulário para testar os recursos de acessibilidade, máscaras e validação nativa do HTML5.</p>
-    <picture>
-      <source srcset="imagens/cadastro-voluntarios-se.webp" type="image/webp">
-      <img class="imagem imagem-cadastro" src="imagens/cadastro-voluntarios-se.jpg" alt="Pessoas de diferentes origens usam computador e celular para participar de ações sociais na Praça da Sé." width="1200" height="675" loading="lazy">
-    </picture>
-    <p class="aviso"><strong>Atenção:</strong> atividade acadêmica fictícia. Use somente dados inventados. Este formulário não envia nem armazena informações.</p>
 
-    <form id="formulario">
+
+    <!-- APRESENTAÇÃO DO CADASTRO -->
+
+    <section aria-labelledby="titulo-cadastro">
+
+      <h1 id="titulo-cadastro">
+        Cadastro de doadores e voluntários
+      </h1>
+
+      <p>
+        Preencha o formulário para testar os
+        recursos de acessibilidade, máscaras
+        e validação nativa do HTML5.
+      </p>
+
+
+      <!-- IMAGEM DO CADASTRO -->
+
+      <picture>
+
+        <source
+          srcset="imagens/cadastro-voluntarios-se.webp"
+          type="image/webp">
+
+        <img
+          class="imagem imagem-cadastro"
+          src="imagens/cadastro-voluntarios-se.jpg"
+          alt="Pessoas de diferentes origens usam computador e celular para participar de ações sociais na Praça da Sé."
+          width="1200"
+          height="675"
+          loading="lazy">
+
+      </picture>
+
+
+      <!-- ALERTA INSTITUCIONAL -->
+
+      <aside
+        class="aviso"
+        aria-label="Informação sobre o cadastro">
+
+        <strong>
+          Atenção: cadastro demonstrativo
+        </strong>
+
+        <p>
+          Esta atividade é um projeto acadêmico
+          fictício. Utilize somente informações
+          inventadas.
+
+          O formulário não envia nem armazena
+          informações pessoais.
+        </p>
+
+      </aside>
+
+    </section>
+
+
+    <!-- FORMULÁRIO DE CADASTRO -->
+
+    <form id="formulario" autocomplete="off">
+
+
+      <!-- ALERTA DE ERRO -->
+
+      <div
+        id="erro-cadastro"
+        class="alerta alerta-erro"
+        role="alert"
+        hidden>
+
+        <strong>
+          Existem informações que precisam
+          ser corrigidas.
+        </strong>
+
+        <p>
+          Confira os campos obrigatórios,
+          os formatos solicitados e a
+          confirmação de participação.
+        </p>
+
+      </div>
+
+
+      <!-- DADOS PESSOAIS -->
+
       <fieldset>
+
         <legend>Dados pessoais</legend>
+
         <div class="campos">
-          <div><label for="nome">Nome completo</label><input id="nome" name="nome" type="text" autocomplete="name" minlength="3" maxlength="100" required></div>
-          <div><label for="cpf">CPF (somente fictício)</label><input id="cpf" name="cpf" type="text" inputmode="numeric" placeholder="000.000.000-00" pattern="[0-9]{3}\.[0-9]{3}\.[0-9]{3}-[0-9]{2}" title="Use o formato 000.000.000-00" maxlength="14" required></div>
-          <div><label for="nascimento">Data de nascimento</label><input id="nascimento" name="nascimento" type="date" autocomplete="bday" required></div>
-          <div><label for="email">E-mail (fictício)</label><input id="email" name="email" type="email" autocomplete="email" maxlength="120" required></div>
+
+
+          <!-- NOME COMPLETO -->
+
+          <div class="grupo-campo">
+
+            <label for="nome">
+              Nome completo
+            </label>
+
+            <input
+              id="nome"
+              name="nome"
+              type="text"
+              minlength="3"
+              maxlength="100"
+              required>
+
+          </div>
+
+
+          <!-- CPF -->
+
+          <div class="grupo-campo">
+
+            <label for="cpf">
+              CPF (somente fictício)
+            </label>
+
+            <input
+              id="cpf"
+              name="cpf"
+              type="text"
+              inputmode="numeric"
+              placeholder="000.000.000-00"
+              pattern="[0-9]{3}\.[0-9]{3}\.[0-9]{3}-[0-9]{2}"
+              title="Use o formato 000.000.000-00"
+              maxlength="14"
+              required>
+
+          </div>
+
+
+          <!-- DATA DE NASCIMENTO -->
+
+          <div class="grupo-campo">
+
+            <label for="nascimento">
+              Data de nascimento
+            </label>
+
+            <input
+              id="nascimento"
+              name="nascimento"
+              type="date"
+              required>
+
+          </div>
+
+
+          <!-- E-MAIL -->
+
+          <div class="grupo-campo">
+
+            <label for="email">
+              E-mail (fictício)
+            </label>
+
+            <input
+              id="email"
+              name="email"
+              type="email"
+              maxlength="120"
+              required>
+
+          </div>
+
         </div>
+
       </fieldset>
 
+
+      <!-- CONTATO E ENDEREÇO -->
+
       <fieldset>
+
         <legend>Contato e endereço</legend>
+
         <div class="campos">
-          <div><label for="telefone">Celular</label><input id="telefone" name="telefone" type="tel" autocomplete="tel" inputmode="numeric" placeholder="(11) 99999-9999" pattern="\([0-9]{2}\) [0-9]{5}-[0-9]{4}" title="Use o formato (11) 99999-9999" maxlength="15" required></div>
-          <div><label for="cep">CEP</label><input id="cep" name="cep" type="text" autocomplete="postal-code" inputmode="numeric" placeholder="00000-000" pattern="[0-9]{5}-[0-9]{3}" title="Use o formato 00000-000" maxlength="9" required></div>
-          <div><label for="endereco">Endereço</label><input id="endereco" name="endereco" type="text" autocomplete="street-address" maxlength="120" required></div>
-          <div><label for="numero">Número</label><input id="numero" name="numero" type="text" maxlength="10" required></div>
-          <div><label for="cidade">Cidade</label><input id="cidade" name="cidade" type="text" autocomplete="address-level2" maxlength="80" required></div>
-          <div><label for="uf">Estado (UF)</label><input id="uf" name="uf" type="text" autocomplete="address-level1" placeholder="SP" pattern="[A-Za-z]{2}" title="Informe a sigla do estado com duas letras" maxlength="2" required></div>
+
+
+          <!-- TELEFONE -->
+
+          <div class="grupo-campo">
+
+            <label for="telefone">
+              Celular
+            </label>
+
+            <input
+              id="telefone"
+              name="telefone"
+              type="tel"
+              inputmode="numeric"
+              placeholder="(11) 99999-9999"
+              pattern="\([0-9]{2}\) [0-9]{5}-[0-9]{4}"
+              title="Use o formato (11) 99999-9999"
+              maxlength="15"
+              required>
+
+          </div>
+
+
+          <!-- CEP -->
+
+          <div class="grupo-campo">
+
+            <label for="cep">
+              CEP
+            </label>
+
+            <input
+              id="cep"
+              name="cep"
+              type="text"
+              inputmode="numeric"
+              placeholder="00000-000"
+              pattern="[0-9]{5}-[0-9]{3}"
+              title="Use o formato 00000-000"
+              maxlength="9"
+              required>
+
+          </div>
+
+
+          <!-- ENDEREÇO -->
+
+          <div class="grupo-campo">
+
+            <label for="endereco">
+              Endereço
+            </label>
+
+            <input
+              id="endereco"
+              name="endereco"
+              type="text"
+              maxlength="120"
+              required>
+
+          </div>
+
+
+          <!-- NÚMERO -->
+
+          <div class="grupo-campo">
+
+            <label for="numero">
+              Número
+            </label>
+
+            <input
+              id="numero"
+              name="numero"
+              type="text"
+              maxlength="10"
+              required>
+
+          </div>
+
+
+          <!-- CIDADE -->
+
+          <div class="grupo-campo">
+
+            <label for="cidade">
+              Cidade
+            </label>
+
+            <input
+              id="cidade"
+              name="cidade"
+              type="text"
+              maxlength="80"
+              required>
+
+          </div>
+
+
+          <!-- ESTADO -->
+
+          <div class="grupo-campo">
+
+            <label for="uf">
+              Estado (UF)
+            </label>
+
+            <input
+              id="uf"
+              name="uf"
+              type="text"
+              placeholder="SP"
+              pattern="[A-Za-z]{2}"
+              title="Informe a sigla do estado com duas letras"
+              maxlength="2"
+              required>
+
+          </div>
+
         </div>
+
       </fieldset>
 
+
+      <!-- PARTICIPAÇÃO -->
+
       <fieldset>
+
         <legend>Tipo de participação</legend>
+
         <p>Como deseja contribuir?</p>
+
+
+        <!-- OPÇÕES DE PARTICIPAÇÃO -->
+
         <div class="opcoes">
-          <label><input type="radio" name="participacao" value="doacao" required> Fazer doações</label>
-          <label><input type="radio" name="participacao" value="voluntariado"> Ser voluntário(a)</label>
-          <label><input type="radio" name="participacao" value="ambos"> As duas modalidades</label>
+
+          <label>
+
+            <input
+              type="radio"
+              name="participacao"
+              value="doacao"
+              required>
+
+            Fazer doações
+
+          </label>
+
+
+          <label>
+
+            <input
+              type="radio"
+              name="participacao"
+              value="voluntariado">
+
+            Ser voluntário(a)
+
+          </label>
+
+
+          <label>
+
+            <input
+              type="radio"
+              name="participacao"
+              value="ambos">
+
+            As duas modalidades
+
+          </label>
+
         </div>
-        <label for="mensagem">Mensagem (opcional)</label>
-        <textarea id="mensagem" name="mensagem" rows="4" maxlength="500"></textarea>
-        <label class="aceite"><input id="aviso" name="aviso" type="checkbox" required> Entendi que este cadastro é apenas uma simulação e não envia nem armazena dados.</label>
+
+
+        <!-- MENSAGEM -->
+
+        <div class="grupo-campo">
+
+          <label for="mensagem">
+            Mensagem (opcional)
+          </label>
+
+          <textarea
+            id="mensagem"
+            name="mensagem"
+            rows="4"
+            maxlength="500"></textarea>
+
+        </div>
+
+
+        <!-- CONFIRMAÇÃO -->
+
+        <label class="aceite">
+
+          <input
+            id="aviso"
+            name="aviso"
+            type="checkbox"
+            required>
+
+          Entendi que este cadastro é apenas
+          uma simulação e não envia nem
+          armazena dados.
+
+        </label>
+
       </fieldset>
-      <button class="botao" type="submit">Verificar cadastro</button>
-      <p id="resultado" role="status" aria-live="polite"></p>
+
+
+      <!-- BOTÕES DO FORMULÁRIO -->
+
+      <div class="acoes">
+
+        <button
+          class="botao"
+          type="submit">
+
+          Verificar cadastro
+
+        </button>
+
+
+        <button
+          class="botao"
+          type="reset">
+
+          Limpar formulário
+
+        </button>
+
+      </div>
+
     </form>
+
+
+    <!-- TOAST DE CONFIRMAÇÃO -->
+
+    <div
+      id="resultado"
+      class="toast"
+      role="status"
+      aria-live="polite"
+      aria-atomic="true"
+      hidden>
+
+      <span
+        class="toast-mensagem">
+      </span>
+
+      <button
+        id="fechar-toast"
+        class="toast-fechar"
+        type="button"
+        aria-label="Fechar notificação">
+
+        &times;
+
+      </button>
+
+    </div>
+
   </main>
 
+
+  <!-- RODAPÉ INSTITUCIONAL -->
+
   <footer class="rodape">
-    <div class="container">
-      <h2>Contato</h2>
-      <address>São Paulo – SP • E-mail ilustrativo: <a href="mailto:contato@conectasocial.example">contato@conectasocial.example</a></address>
-      <p>Conecta Social • Projeto acadêmico fictício • 2026</p>
+
+    <div class="container rodape-conteudo">
+
+      <div class="contato-conteudo">
+
+        <h2>Contato</h2>
+
+        <address>
+
+          São Paulo – SP
+
+          <br>
+
+          E-mail ilustrativo:
+
+          <a href="mailto:contato@conectasocial.example">
+
+            contato@conectasocial.example
+
+          </a>
+
+        </address>
+
+      </div>
+
+
+      <div>
+
+        <p>
+          Conecta Social
+          <br>
+          Projeto acadêmico fictício • 2026
+        </p>
+
+        <p>
+          Desenvolvido para fins de
+          aprendizagem em Front-End.
+        </p>
+
+      </div>
+
     </div>
+
   </footer>
+
 </body>
+
 </html>
