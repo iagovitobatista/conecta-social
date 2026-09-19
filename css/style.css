@@ -1,0 +1,295 @@
+
+/* Conecta Social - Projeto academico */
+
+:root {
+  --verde: #17594c;
+  --verde-escuro: #103d35;
+  --fundo: #f5f9f7;
+  --texto: #243b37;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.6;
+  color: var(--texto);
+  background: var(--fundo);
+}
+
+.container {
+  width: min(1100px, 92%);
+  margin: auto;
+}
+
+.pular {
+  position: absolute;
+  left: -9999px;
+  background: white;
+  color: var(--verde);
+  padding: 12px;
+  z-index: 10;
+}
+
+.pular:focus {
+  left: 10px;
+  top: 10px;
+}
+
+.cabecalho {
+  background: var(--verde);
+  color: white;
+  padding: 15px 0;
+}
+
+.topo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.marca {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: white;
+  text-decoration: none;
+  font-size: 1.4rem;
+  font-weight: bold;
+}
+
+.marca img {
+  width: 60px;
+  height: 60px;
+}
+
+.menu {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.menu a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.menu a:hover,
+.menu a:focus {
+  text-decoration: underline;
+}
+
+.menu a[aria-current="page"] {
+  text-decoration: underline;
+}
+
+h1, h2, h3 {
+  color: var(--verde);
+  line-height: 1.3;
+}
+
+h1 {
+  font-size: clamp(2rem, 4vw, 3rem);
+}
+
+p {
+  margin-bottom: 16px;
+}
+
+a {
+  color: var(--verde);
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid #e7a73a;
+  outline-offset: 3px;
+}
+
+.abertura {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 35px;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+.destaque {
+  font-weight: bold;
+  color: var(--verde);
+}
+
+.imagem {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+}
+
+.faixa {
+  background: #e2f1e9;
+  padding: 35px 0;
+}
+
+.espaco {
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+
+.botao {
+  display: inline-block;
+  background: var(--verde);
+  color: white;
+  padding: 12px 22px;
+  border: 0;
+  border-radius: 7px;
+  text-decoration: none;
+  font: inherit;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.botao:hover {
+  background: var(--verde-escuro);
+}
+
+.cartao {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 25px;
+  align-items: center;
+  padding: 20px;
+  background: white;
+  border: 1px solid #dce7e1;
+  border-radius: 12px;
+  margin-top: 20px;
+}
+
+.aviso {
+  background: #fff3d9;
+  padding: 18px;
+  border-left: 5px solid #c88c22;
+  border-radius: 5px;
+  margin: 20px 0;
+}
+
+.imagem-cadastro {
+  max-height: 380px;
+  object-fit: cover;
+  object-position: center;
+}
+
+form {
+  max-width: 850px;
+  margin: 30px auto;
+}
+
+fieldset {
+  background: white;
+  border: 1px solid #bdcec5;
+  border-radius: 10px;
+  margin-bottom: 24px;
+  padding: 22px;
+}
+
+legend {
+  font-weight: bold;
+  color: var(--verde);
+  padding: 0 10px;
+}
+
+.campos {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 6px;
+}
+
+input:not([type="radio"]):not([type="checkbox"]),
+textarea {
+  display: block;
+  width: 100%;
+  padding: 11px;
+  border: 1px solid #849b90;
+  border-radius: 6px;
+  font: inherit;
+}
+
+.opcoes {
+  margin: 15px 0;
+}
+
+.opcoes label,
+.aceite {
+  display: block;
+  font-weight: normal;
+  margin: 12px 0;
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+  margin-right: 8px;
+  accent-color: var(--verde);
+}
+
+.rodape {
+  background: var(--verde-escuro);
+  color: white;
+  padding: 35px 0;
+  margin-top: 35px;
+}
+
+.rodape h2,
+.rodape a {
+  color: white;
+}
+
+.rodape address {
+  font-style: normal;
+}
+
+@media (max-width: 700px) {
+  .topo {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .menu {
+    gap: 12px;
+  }
+
+  .abertura,
+  .cartao,
+  .campos {
+    grid-template-columns: 1fr;
+  }
+
+  .abertura {
+    padding-top: 30px;
+  }
+
+  fieldset {
+    padding: 15px;
+  }
+}
