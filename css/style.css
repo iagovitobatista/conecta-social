@@ -390,6 +390,132 @@ input[type="checkbox"] {
   }
 
   .botao {
+    
+/* COMPONENTES DE FEEDBACK
+   Conecta Social - Experiencia Pratica II */
+
+/* BADGES */
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 14px;
+  margin-bottom: 12px;
+  border-radius: 20px;
+  font-size: 0.875rem;
+  font-weight: bold;
+  border: 1px solid transparent;
+}
+
+.badge-doacao {
+  background: #e2f1e9;
+  color: #103d35;
+  border-color: #8eb8a6;
+}
+
+.badge-voluntariado {
+  background: #dbeafe;
+  color: #1e40af;
+  border-color: #93c5fd;
+}
+
+/* ALERTAS */
+
+.aviso {
+  background: #fff4d6;
+  color: #713f12;
+  border: 1px solid #d6a43b;
+  border-left: 5px solid #b45309;
+  border-radius: 8px;
+  padding: 20px;
+  margin: 24px 0;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+
+.aviso strong {
+  display: block;
+  margin-bottom: 6px;
+}
+
+/* ESTADOS DOS FORMULARIOS */
+
+input:focus,
+textarea:focus {
+  border-color: #17594c;
+  outline: 3px solid #e7a73a;
+  outline-offset: 2px;
+}
+
+input:not(:placeholder-shown):invalid {
+  border-color: #b91c1c;
+}
+
+input:not(:placeholder-shown):valid {
+  border-color: #17594c;
+}
+
+/* TOAST DE CONFIRMACAO */
+
+#resultado {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 1000;
+
+  width: min(400px, calc(100vw - 32px));
+  padding: 20px;
+
+  background: #17594c;
+  color: #ffffff;
+
+  border: 2px solid #103d35;
+  border-radius: 12px;
+
+  box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+
+  font-size: 1rem;
+  font-weight: bold;
+  line-height: 1.5;
+
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px);
+
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease,
+    visibility 0.3s;
+}
+
+#resultado.visivel {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+/* ADAPTACAO PARA CELULARES */
+
+@media (max-width: 480px) {
+  #resultado {
+    left: 16px;
+    right: 16px;
+    bottom: 16px;
+    width: auto;
+  }
+
+  .badge {
+    font-size: 0.8rem;
+  }
+}
+
+/* ACESSIBILIDADE */
+
+@media (prefers-reduced-motion: reduce) {
+  #resultado {
+    transition: none;
+    transform: none;
+  }
+}
     transition: none;
   }
 
