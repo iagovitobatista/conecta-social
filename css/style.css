@@ -1,12 +1,53 @@
 
-/* Conecta Social - Projeto academico */
+/*
+  CONECTA SOCIAL
+  Experiencia Pratica II
+  Design System e Layout Responsivo
+*/
+
+/* 1. DESIGN SYSTEM */
 
 :root {
-  --verde: #17594c;
-  --verde-escuro: #103d35;
-  --fundo: #f5f9f7;
-  --texto: #243b37;
+
+  /* Cores primarias */
+  --cor-primaria: #17594c;
+  --cor-primaria-escura: #103d35;
+  --cor-primaria-clara: #e2f1e9;
+
+  /* Cores secundarias */
+  --cor-secundaria: #2563eb;
+  --cor-destaque: #e7a73a;
+
+  /* Cores neutras */
+  --cor-branco: #ffffff;
+  --cor-fundo: #f5f9f7;
+  --cor-texto: #243b37;
+  --cor-texto-secundario: #56665f;
+  --cor-borda: #bdcec5;
+
+  /* Escala tipografica */
+  --fonte-pequena: 0.875rem;
+  --fonte-padrao: 1rem;
+  --fonte-media: 1.125rem;
+  --fonte-subtitulo: 1.5rem;
+  --fonte-titulo: 2.5rem;
+
+  /* Escala modular: base 4px */
+  --espaco-1: 4px;
+  --espaco-2: 8px;
+  --espaco-3: 12px;
+  --espaco-4: 16px;
+  --espaco-6: 24px;
+  --espaco-8: 32px;
+  --espaco-12: 48px;
+
+  /* Outros elementos */
+  --raio-padrao: 8px;
+  --raio-cartao: 12px;
+
 }
+
+/* 2. CONFIGURACOES GERAIS */
 
 * {
   box-sizing: border-box;
@@ -19,9 +60,10 @@ html {
 body {
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
+  font-size: var(--fonte-padrao);
   line-height: 1.6;
-  color: var(--texto);
-  background: var(--fundo);
+  color: var(--cor-texto);
+  background: var(--cor-fundo);
 }
 
 .container {
@@ -29,41 +71,73 @@ body {
   margin: auto;
 }
 
-.pular {
-  position: absolute;
-  left: -9999px;
-  background: white;
-  color: var(--verde);
-  padding: 12px;
-  z-index: 10;
+p {
+  margin-bottom: var(--espaco-4);
 }
 
-.pular:focus {
-  left: 10px;
-  top: 10px;
+a {
+  color: var(--cor-secundaria);
 }
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid var(--cor-destaque);
+  outline-offset: var(--espaco-1);
+}
+
+/* 3. HIERARQUIA TIPOGRAFICA */
+
+h1, h2, h3 {
+  color: var(--cor-primaria);
+  line-height: 1.3;
+}
+
+h1 {
+  font-size: var(--fonte-titulo);
+  margin-bottom: var(--espaco-6);
+}
+
+h2 {
+  font-size: var(--fonte-subtitulo);
+  margin-bottom: var(--espaco-4);
+}
+
+h3 {
+  font-size: var(--fonte-media);
+  margin-bottom: var(--espaco-3);
+}
+
+.destaque {
+  font-size: var(--fonte-pequena);
+  font-weight: bold;
+  color: var(--cor-primaria);
+}
+
+/* 4. CABECALHO E NAVEGACAO */
 
 .cabecalho {
-  background: var(--verde);
-  color: white;
-  padding: 15px 0;
+  background: var(--cor-primaria);
+  color: var(--cor-branco);
+  padding: var(--espaco-4) 0;
 }
 
 .topo {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 20px;
   flex-wrap: wrap;
+  gap: var(--espaco-6);
 }
 
 .marca {
   display: flex;
   align-items: center;
-  gap: 10px;
-  color: white;
+  gap: var(--espaco-3);
+  color: var(--cor-branco);
   text-decoration: none;
-  font-size: 1.4rem;
+  font-size: var(--fonte-media);
   font-weight: bold;
 }
 
@@ -74,120 +148,115 @@ body {
 
 .menu {
   display: flex;
-  gap: 20px;
   flex-wrap: wrap;
+  gap: var(--espaco-6);
+  list-style: none;
   margin: 0;
   padding: 0;
-  list-style: none;
 }
 
 .menu a {
-  color: white;
+  color: var(--cor-branco);
   text-decoration: none;
   font-weight: bold;
+  padding: var(--espaco-2);
 }
 
 .menu a:hover,
-.menu a:focus {
-  text-decoration: underline;
-}
-
+.menu a:focus,
 .menu a[aria-current="page"] {
   text-decoration: underline;
 }
 
-h1, h2, h3 {
-  color: var(--verde);
-  line-height: 1.3;
+/* Acessibilidade: pular para o conteudo */
+
+.pular {
+  position: absolute;
+  left: -9999px;
+  padding: var(--espaco-3);
+  background: var(--cor-branco);
+  color: var(--cor-primaria);
+  z-index: 10;
 }
 
-h1 {
-  font-size: clamp(2rem, 4vw, 3rem);
+.pular:focus {
+  left: var(--espaco-3);
+  top: var(--espaco-3);
 }
 
-p {
-  margin-bottom: 16px;
-}
-
-a {
-  color: var(--verde);
-}
-
-a:focus-visible,
-button:focus-visible,
-input:focus-visible,
-textarea:focus-visible {
-  outline: 3px solid #e7a73a;
-  outline-offset: 3px;
-}
+/* 5. PAGINA INICIAL */
 
 .abertura {
   display: grid;
   grid-template-columns: 1fr 1fr;
   align-items: center;
-  gap: 35px;
-  padding-top: 50px;
-  padding-bottom: 50px;
-}
-
-.destaque {
-  font-weight: bold;
-  color: var(--verde);
+  gap: var(--espaco-8);
+  padding-top: var(--espaco-12);
+  padding-bottom: var(--espaco-12);
 }
 
 .imagem {
   display: block;
   width: 100%;
   height: auto;
-  border-radius: 12px;
+  border-radius: var(--raio-cartao);
 }
 
 .faixa {
-  background: #e2f1e9;
-  padding: 35px 0;
+  background: var(--cor-primaria-clara);
+  padding: var(--espaco-8) 0;
 }
 
 .espaco {
-  padding-top: 40px;
-  padding-bottom: 40px;
+  padding-top: var(--espaco-12);
+  padding-bottom: var(--espaco-12);
 }
+
+/* 6. BOTOES */
 
 .botao {
   display: inline-block;
-  background: var(--verde);
-  color: white;
-  padding: 12px 22px;
-  border: 0;
-  border-radius: 7px;
+  padding: var(--espaco-3) var(--espaco-6);
+  background: var(--cor-primaria);
+  color: var(--cor-branco);
   text-decoration: none;
   font: inherit;
   font-weight: bold;
+  border: 0;
+  border-radius: var(--raio-padrao);
   cursor: pointer;
+  transition: background 0.2s ease;
 }
 
 .botao:hover {
-  background: var(--verde-escuro);
+  background: var(--cor-primaria-escura);
 }
+
+/* 7. CARTOES DOS PROJETOS */
 
 .cartao {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 25px;
   align-items: center;
-  padding: 20px;
-  background: white;
-  border: 1px solid #dce7e1;
-  border-radius: 12px;
-  margin-top: 20px;
+  gap: var(--espaco-6);
+  padding: var(--espaco-6);
+  margin-top: var(--espaco-6);
+
+  background: var(--cor-branco);
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio-cartao);
 }
 
 .aviso {
-  background: #fff3d9;
-  padding: 18px;
-  border-left: 5px solid #c88c22;
-  border-radius: 5px;
-  margin: 20px 0;
+  padding: var(--espaco-4);
+  margin: var(--espaco-6) 0;
+  background: var(--cor-branco);
+  border-left: 5px solid var(--cor-destaque);
+  border-radius: var(--raio-padrao);
+  color: var(--cor-texto-secundario);
 }
+
+/* 8. FORMULARIO */
 
 .imagem-cadastro {
   max-height: 380px;
@@ -197,86 +266,103 @@ textarea:focus-visible {
 
 form {
   max-width: 850px;
-  margin: 30px auto;
+  margin: var(--espaco-8) auto;
 }
 
 fieldset {
-  background: white;
-  border: 1px solid #bdcec5;
-  border-radius: 10px;
-  margin-bottom: 24px;
-  padding: 22px;
+  padding: var(--espaco-6);
+  margin-bottom: var(--espaco-6);
+
+  background: var(--cor-branco);
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio-padrao);
 }
 
 legend {
+  font-size: var(--fonte-media);
   font-weight: bold;
-  color: var(--verde);
-  padding: 0 10px;
+  color: var(--cor-primaria);
+  padding: 0 var(--espaco-2);
 }
 
 .campos {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 18px;
+  gap: var(--espaco-4);
 }
 
 label {
   display: block;
   font-weight: bold;
-  margin-bottom: 6px;
+  margin-bottom: var(--espaco-2);
 }
 
 input:not([type="radio"]):not([type="checkbox"]),
 textarea {
   display: block;
   width: 100%;
-  padding: 11px;
-  border: 1px solid #849b90;
-  border-radius: 6px;
+  padding: var(--espaco-3);
+  border: 1px solid var(--cor-texto-secundario);
+  border-radius: var(--raio-padrao);
   font: inherit;
+  background: var(--cor-branco);
+  color: var(--cor-texto);
 }
 
 .opcoes {
-  margin: 15px 0;
+  margin: var(--espaco-4) 0;
 }
 
 .opcoes label,
 .aceite {
   display: block;
   font-weight: normal;
-  margin: 12px 0;
+  margin: var(--espaco-3) 0;
 }
 
 input[type="radio"],
 input[type="checkbox"] {
-  margin-right: 8px;
-  accent-color: var(--verde);
+  margin-right: var(--espaco-2);
+  accent-color: var(--cor-primaria);
 }
 
+/* 9. RODAPE */
+
 .rodape {
-  background: var(--verde-escuro);
-  color: white;
-  padding: 35px 0;
-  margin-top: 35px;
+  background: var(--cor-primaria-escura);
+  color: var(--cor-branco);
+  padding: var(--espaco-8) 0;
+  margin-top: var(--espaco-8);
 }
 
 .rodape h2,
 .rodape a {
-  color: white;
+  color: var(--cor-branco);
 }
 
 .rodape address {
   font-style: normal;
 }
 
+.rodape p {
+  font-size: var(--fonte-pequena);
+}
+
+/* 10. RESPONSIVIDADE */
+
 @media (max-width: 700px) {
+
+  h1 {
+    font-size: var(--fonte-subtitulo);
+  }
+
   .topo {
     flex-direction: column;
     align-items: flex-start;
   }
 
   .menu {
-    gap: 12px;
+    gap: var(--espaco-2);
   }
 
   .abertura,
@@ -286,10 +372,25 @@ input[type="checkbox"] {
   }
 
   .abertura {
-    padding-top: 30px;
+    padding-top: var(--espaco-8);
   }
 
   fieldset {
-    padding: 15px;
+    padding: var(--espaco-4);
   }
+
+}
+
+/* Respeita preferencias de movimento */
+
+@media (prefers-reduced-motion: reduce) {
+
+  html {
+    scroll-behavior: auto;
+  }
+
+  .botao {
+    transition: none;
+  }
+
 }
