@@ -1,11 +1,16 @@
 
- // Conecta Social — Experiência Prática III
- // Eventos e validação do formulário demonstrativo da SPA.
+import {
+  salvarPreferencia,
+  recuperarPreferencia
+} from "./armazenamento.js";
+
+// Conecta Social — Experiência Prática III
+// Validação e preferência de participação do formulário da SPA.
 
 export function iniciarFormulario() {
   const formulario = document.getElementById("formulario-spa");
 
-  // A função só deve atuar quando a tela de Cadastro estiver aberta.
+  // O formulário só existe quando a tela Participe é carregada.
   if (!formulario) {
     return;
   }
@@ -14,7 +19,14 @@ export function iniciarFormulario() {
   const email = document.getElementById("email-spa");
   const participacao = document.getElementById("participacao-spa");
 
-  // Cria uma área de feedback abaixo do botão do formulário.
+  // Recupera a preferência salva e restaura a seleção no formulário.
+  const preferenciaSalva = recuperarPreferencia();
+
+  if (preferenciaSalva) {
+    participacao.value = preferenciaSalva;
+  }
+
+  // Cria uma área para apresentar mensagens ao usuário.
   const feedback = document.createElement("p");
   feedback.id = "feedback-formulario-spa";
   feedback.setAttribute("role", "status");
@@ -23,7 +35,6 @@ export function iniciarFormulario() {
 
   formulario.appendChild(feedback);
 
-  // Exibe uma mensagem sem substituir o conteúdo do formulário.
   function mostrarMensagem(texto, sucesso = false) {
     feedback.textContent = texto;
     feedback.style.color = sucesso ? "#166534" : "#b91c1c";
@@ -36,20 +47,21 @@ export function iniciarFormulario() {
     feedback.hidden = true;
   }
 
-  // Impede que um nome composto apenas por espaços seja aceito.
   function validarNome() {
     const nomeDigitado = nome.value.trim();
 
-    if (nomeDigitado.length > 0 && nomeDigitado.length < 3) {
-      nome.setCustomValidity("Informe um nome fictício com pelo menos 3 caracteres.");
-    } else if (nome.value.length > 0 && nomeDigitado.length === 0) {
+    if (nome.value.length > 0 && nomeDigitado.length === 0) {
       nome.setCustomValidity("O nome não pode conter apenas espaços.");
+    } else if (nomeDigitado.length > 0 && nomeDigitado.length < 3) {
+      nome.setCustomValidity(
+        "Informe um nome fictício com pelo menos 3 caracteres."
+      );
     } else {
       nome.setCustomValidity("");
     }
   }
 
-  // Evento input: reage enquanto a pessoa digita.
+  // Reage à digitação e atualiza o estado visual dos campos.
   formulario.addEventListener("input", function (evento) {
     limparMensagem();
 
@@ -57,19 +69,20 @@ export function iniciarFormulario() {
       validarNome();
     }
 
-    // Utiliza os estilos de validação já preparados no CSS.
     if (evento.target.matches("input")) {
       evento.target.classList.add("campo-interagido");
     }
   });
 
-  // Evento change: reage à escolha da modalidade de participação.
+  // Salva somente a modalidade escolhida, nunca nome ou e-mail.
   participacao.addEventListener("change", function () {
     limparMensagem();
     participacao.classList.add("campo-interagido");
+
+    salvarPreferencia(participacao.value);
   });
 
-  // Captura tentativas de envio bloqueadas pela validação HTML5.
+  // Apresenta orientações quando a validação HTML5 detecta um erro.
   formulario.addEventListener(
     "invalid",
     function (evento) {
@@ -82,7 +95,7 @@ export function iniciarFormulario() {
     true
   );
 
-  // Evento submit: evita o recarregamento e valida o cadastro.
+  // Impede o envio tradicional e apresenta o resultado da validação.
   formulario.addEventListener("submit", function (evento) {
     evento.preventDefault();
 
@@ -102,7 +115,7 @@ export function iniciarFormulario() {
     }
 
     mostrarMensagem(
-      "Cadastro demonstrativo validado com sucesso! Nenhum dado foi enviado ou armazenado.",
+      "Cadastro demonstrativo validado! Nenhum nome ou e-mail foi enviado ou armazenado. A preferência de participação pode ficar salva neste navegador.",
       true
     );
   });
