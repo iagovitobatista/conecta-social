@@ -1,0 +1,13 @@
+<section aria-labelledby="titulo-inicio">
+  <h1 id="titulo-inicio">Conecta Social</h1>
+
+  <p>
+    Pessoas que transformam realidades.
+    Conheça nossas iniciativas de doação e voluntariado.
+  </p>
+
+  <p>
+    Esta é a tela inicial da versão SPA do Conecta Social,
+    desenvolvida para a Experiência Prática III.
+  </p>
+</section>
