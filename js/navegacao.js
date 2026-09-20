@@ -1,6 +1,7 @@
 
 import { carregarTemplate } from "./templates.js";
 import { renderizarProjetos } from "./componentes.js";
+import { iniciarFormulario } from "./formulario.js";
 
 const telasDisponiveis = ["inicio", "projetos", "cadastro"];
 
@@ -24,17 +25,22 @@ export function iniciarNavegacao() {
     areaConteudo.textContent = "Carregando conteúdo...";
 
     try {
-      // Busca o HTML da tela selecionada.
+      // Busca o HTML da tela escolhida.
       const conteudo = await carregarTemplate(tela);
 
-      // Insere o conteúdo na área principal da SPA.
+      // Coloca o conteúdo na área principal da SPA.
       areaConteudo.innerHTML = conteudo;
 
-      // Gera os cartões após inserir a tela de Projetos no DOM.
+      // Inicializa as funcionalidades específicas de cada tela.
       if (tela === "projetos") {
         renderizarProjetos();
       }
 
+      if (tela === "cadastro") {
+        iniciarFormulario();
+      }
+
+      // Atualiza o título da aba.
       const nomes = {
         inicio: "Início",
         projetos: "Projetos",
@@ -43,6 +49,7 @@ export function iniciarNavegacao() {
 
       document.title = `${nomes[tela]} | Conecta Social`;
 
+      // Indica visualmente a opção ativa no menu.
       document.querySelectorAll("[data-rota]").forEach((link) => {
         if (link.dataset.rota === tela) {
           link.setAttribute("aria-current", "page");
@@ -50,16 +57,21 @@ export function iniciarNavegacao() {
           link.removeAttribute("aria-current");
         }
       });
+
     } catch (erro) {
       console.error("Erro ao carregar a tela:", erro);
+
       areaConteudo.textContent =
         "Não foi possível carregar esta tela. Tente novamente.";
+
     } finally {
       areaConteudo.removeAttribute("aria-busy");
     }
   }
 
+  // Reage às mudanças de rota e ao histórico do navegador.
   window.addEventListener("hashchange", mostrarTela);
 
+  // Mostra a tela inicial ao abrir a aplicação.
   mostrarTela();
 }
