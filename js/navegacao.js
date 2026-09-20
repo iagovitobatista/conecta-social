@@ -1,7 +1,6 @@
-// Conecta Social — Experiência Prática III
-// Navegação entre as telas da SPA.
 
 import { carregarTemplate } from "./templates.js";
+import { renderizarProjetos } from "./componentes.js";
 
 const telasDisponiveis = ["inicio", "projetos", "cadastro"];
 
@@ -16,7 +15,6 @@ export function iniciarNavegacao() {
   async function mostrarTela() {
     const tela = window.location.hash.slice(1) || "inicio";
 
-    // Impede a tentativa de abrir uma tela inexistente.
     if (!telasDisponiveis.includes(tela)) {
       window.location.hash = "inicio";
       return;
@@ -26,11 +24,17 @@ export function iniciarNavegacao() {
     areaConteudo.textContent = "Carregando conteúdo...";
 
     try {
-      // Busca o HTML da tela e insere na área principal.
+      // Busca o HTML da tela selecionada.
       const conteudo = await carregarTemplate(tela);
+
+      // Insere o conteúdo na área principal da SPA.
       areaConteudo.innerHTML = conteudo;
 
-      // Atualiza o título exibido na aba do navegador.
+      // Gera os cartões após inserir a tela de Projetos no DOM.
+      if (tela === "projetos") {
+        renderizarProjetos();
+      }
+
       const nomes = {
         inicio: "Início",
         projetos: "Projetos",
@@ -39,7 +43,6 @@ export function iniciarNavegacao() {
 
       document.title = `${nomes[tela]} | Conecta Social`;
 
-      // Identifica qual opção do menu está ativa.
       document.querySelectorAll("[data-rota]").forEach((link) => {
         if (link.dataset.rota === tela) {
           link.setAttribute("aria-current", "page");
@@ -56,10 +59,7 @@ export function iniciarNavegacao() {
     }
   }
 
-  // Troca a tela quando o endereço muda, inclusive
-  // ao usar os botões Voltar e Avançar do navegador.
   window.addEventListener("hashchange", mostrarTela);
 
-  // Carrega a tela inicial ao abrir a aplicação.
   mostrarTela();
 }
