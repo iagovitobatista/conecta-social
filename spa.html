@@ -1,0 +1,136 @@
+
+<!doctype html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta
+    name="description"
+    content="Versão de teste da aplicação SPA do Conecta Social.">
+
+  <title>Início | Conecta Social</title>
+
+  <link
+    rel="icon"
+    href="imagens/icone-conecta-social.svg"
+    type="image/svg+xml">
+
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- Mantém o funcionamento do menu responsivo existente. -->
+  <script src="js/mascaras.js" defer></script>
+
+  <!-- Inicia a navegação da SPA. -->
+  <script type="module" src="js/app.js"></script>
+</head>
+
+<body>
+
+  <header class="cabecalho">
+
+    <div class="container topo">
+
+      <a
+        class="marca"
+        href="#inicio"
+        aria-label="Conecta Social: página inicial">
+
+        <img
+          src="imagens/logo-conecta-social.svg"
+          alt=""
+          width="60"
+          height="60">
+
+        <span>Conecta Social</span>
+
+      </a>
+
+      <button
+        class="menu-toggle"
+        type="button"
+        aria-label="Abrir ou fechar menu de navegação"
+        aria-controls="menu-principal"
+        aria-expanded="false">
+        &#9776;
+      </button>
+
+      <nav aria-label="Navegação principal">
+
+        <ul class="menu" id="menu-principal">
+
+          <li>
+            <a href="#inicio" data-rota="inicio">
+              Início
+            </a>
+          </li>
+
+          <li>
+            <a href="#projetos" data-rota="projetos">
+              Projetos
+            </a>
+          </li>
+
+          <li>
+            <a href="#cadastro" data-rota="cadastro">
+              Participe
+            </a>
+          </li>
+
+        </ul>
+
+      </nav>
+
+    </div>
+
+  </header>
+
+  <!-- O JavaScript colocará cada tela dentro desta área. -->
+
+  <main
+    id="conteudo-spa"
+    class="container espaco"
+    aria-live="polite">
+
+    <p>Carregando conteúdo...</p>
+
+  </main>
+
+  <footer class="rodape">
+
+    <div class="container rodape-conteudo">
+
+      <div class="contato-conteudo">
+
+        <h2>Contato</h2>
+
+        <address>
+          São Paulo – SP<br>
+
+          E-mail ilustrativo:
+
+          <a href="mailto:contato@conectasocial.example">
+            contato@conectasocial.example
+          </a>
+        </address>
+
+      </div>
+
+      <div>
+        <p>Conecta Social<br>
+          Projeto acadêmico fictício • 2026
+        </p>
+
+        <p>
+          Desenvolvido para fins de aprendizagem
+          em Front-End.
+        </p>
+      </div>
+
+    </div>
+
+  </footer>
+
+</body>
+</html>
