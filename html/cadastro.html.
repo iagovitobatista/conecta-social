@@ -1,0 +1,48 @@
+<section aria-labelledby="titulo-cadastro-spa">
+  <h1 id="titulo-cadastro-spa">Participe do Conecta Social</h1>
+
+  <p>
+    Este formulário demonstrativo faz parte da Experiência
+    Prática III. Utilize somente informações fictícias.
+  </p>
+
+  <form id="formulario-spa">
+    <div class="grupo-campo">
+      <label for="nome-spa">Nome fictício</label>
+      <input
+        id="nome-spa"
+        name="nome"
+        type="text"
+        minlength="3"
+        maxlength="100"
+        required>
+    </div>
+
+    <div class="grupo-campo">
+      <label for="email-spa">E-mail fictício</label>
+      <input
+        id="email-spa"
+        name="email"
+        type="email"
+        required>
+    </div>
+
+    <div class="grupo-campo">
+      <label for="participacao-spa">Como deseja participar?</label>
+      <select id="participacao-spa" name="participacao" required>
+        <option value="">Selecione uma opção</option>
+        <option value="doacao">Doações</option>
+        <option value="voluntariado">Voluntariado</option>
+      </select>
+    </div>
+
+    <button class="botao" type="submit">
+      Verificar cadastro demonstrativo
+    </button>
+  </form>
+
+  <p class="aviso">
+    Este projeto é fictício. Não informe dados pessoais reais.
+    O cadastro ainda não está conectado a nenhuma funcionalidade.
+  </p>
+</section>
