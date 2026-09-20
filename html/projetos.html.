@@ -1,0 +1,29 @@
+<section aria-labelledby="titulo-projetos">
+  <h1 id="titulo-projetos">Nossos projetos</h1>
+
+  <p>
+    Conheça as iniciativas fictícias do Conecta Social
+    e descubra diferentes formas de participação.
+  </p>
+
+  <article>
+    <h2>Campanhas de doação</h2>
+    <p>
+      Iniciativa demonstrativa de arrecadação de
+      alimentos, roupas e itens de higiene.
+    </p>
+  </article>
+
+  <article>
+    <h2>Voluntariado</h2>
+    <p>
+      Iniciativa demonstrativa de apoio a atividades
+      comunitárias e ações sociais.
+    </p>
+  </article>
+
+  <p>
+    Este é um projeto acadêmico fictício.
+    Não são recebidas doações nem inscrições reais.
+  </p>
+</section>
