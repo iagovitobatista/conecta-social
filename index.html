@@ -4,42 +4,38 @@
 
 <head>
   <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <meta name="viewport"
-        content="width=device-width, initial-scale=1">
-
-  <meta name="description"
-        content="Conheça o projeto acadêmico Conecta Social: iniciativas de solidariedade, doações e voluntariado em São Paulo.">
+  <meta
+    name="description"
+    content="Versão de teste da aplicação SPA do Conecta Social.">
 
   <title>Início | Conecta Social</title>
 
-  <link rel="icon"
-        href="imagens/icone-conecta-social.svg"
-        type="image/svg+xml">
+  <link
+    rel="icon"
+    href="imagens/icone-conecta-social.svg"
+    type="image/svg+xml">
 
   <link rel="stylesheet" href="css/style.css">
 
+  <!-- Mantém o funcionamento do menu responsivo existente. -->
   <script src="js/mascaras.js" defer></script>
+
+  <!-- Inicia a navegação da SPA. -->
+  <script type="module" src="js/app.js"></script>
 </head>
 
 <body>
-
-  <!-- ACESSIBILIDADE -->
-
-  <a class="pular" href="#conteudo">
-    Pular para o conteúdo principal
-  </a>
-
-
-  <!-- CABEÇALHO E NAVEGAÇÃO -->
 
   <header class="cabecalho">
 
     <div class="container topo">
 
-      <a class="marca"
-         href="index.html"
-         aria-label="Conecta Social: página inicial">
+      <a
+        class="marca"
+        href="#inicio"
+        aria-label="Conecta Social: página inicial">
 
         <img
           src="imagens/logo-conecta-social.svg"
@@ -51,75 +47,33 @@
 
       </a>
 
-
-      <!-- BOTÃO HAMBÚRGUER -->
-
       <button
         class="menu-toggle"
         type="button"
         aria-label="Abrir ou fechar menu de navegação"
         aria-controls="menu-principal"
         aria-expanded="false">
-
         &#9776;
-
       </button>
-
-
-      <!-- MENU PRINCIPAL -->
 
       <nav aria-label="Navegação principal">
 
         <ul class="menu" id="menu-principal">
 
           <li>
-            <a href="index.html"
-               aria-current="page">
+            <a href="#inicio" data-rota="inicio">
               Início
             </a>
           </li>
 
-
-          <!-- MENU COM SUBMENU -->
-
-          <li class="item-submenu">
-
-            <a href="projetos.html">
+          <li>
+            <a href="#projetos" data-rota="projetos">
               Projetos
             </a>
-
-            <button
-              class="submenu-toggle"
-              type="button"
-              aria-label="Mostrar opções de projetos"
-              aria-controls="submenu-projetos"
-              aria-expanded="false">
-
-              &#9662;
-
-            </button>
-
-            <ul class="submenu" id="submenu-projetos">
-
-              <li>
-                <a href="projetos.html">
-                  Conhecer iniciativas
-                </a>
-              </li>
-
-              <li>
-                <a href="cadastro.html">
-                  Como contribuir
-                </a>
-              </li>
-
-            </ul>
-
           </li>
 
-
           <li>
-            <a href="cadastro.html">
+            <a href="#cadastro" data-rota="cadastro">
               Participe
             </a>
           </li>
@@ -132,152 +86,16 @@
 
   </header>
 
+  <!-- O JavaScript colocará cada tela dentro desta área. -->
 
-  <!-- CONTEÚDO PRINCIPAL -->
+  <main
+    id="conteudo-spa"
+    class="container espaco"
+    aria-live="polite">
 
-  <main id="conteudo">
-
-
-    <!-- APRESENTAÇÃO DA ORGANIZAÇÃO -->
-
-    <section
-      class="container abertura"
-      aria-labelledby="titulo-inicio">
-
-      <div class="abertura-conteudo">
-
-        <p class="destaque">
-          Projeto acadêmico • São Paulo – SP
-        </p>
-
-        <h1 id="titulo-inicio">
-          Conecta Social: pessoas que
-          transformam realidades
-        </h1>
-
-        <p>
-          Uma iniciativa fictícia que aproxima
-          a comunidade de oportunidades de
-          doação e voluntariado, com respeito
-          à diversidade e à inclusão.
-        </p>
-
-
-        <!-- BOTÕES DE PARTICIPAÇÃO -->
-
-        <div class="acoes">
-
-          <a class="botao" href="projetos.html">
-            Conheça nossas iniciativas
-          </a>
-
-          <a class="botao" href="cadastro.html">
-            Quero participar
-          </a>
-
-        </div>
-
-      </div>
-
-
-      <!-- IMAGEM PRINCIPAL -->
-
-      <picture>
-
-        <source
-          srcset="imagens/banner-inicial-se.webp"
-          type="image/webp">
-
-        <img
-          class="imagem"
-          src="imagens/banner-inicial-se.jpg"
-          alt="Pessoas de diferentes origens colaboram na Praça da Sé, em São Paulo, com a Catedral da Sé ao fundo."
-          width="1600"
-          height="900">
-
-      </picture>
-
-    </section>
-
-
-    <!-- QUEM SOMOS -->
-
-    <section
-      class="faixa"
-      aria-labelledby="sobre-titulo">
-
-      <div class="container">
-
-        <h2 id="sobre-titulo">
-          Quem somos
-        </h2>
-
-        <p>
-          O Conecta Social é uma ONG fictícia
-          desenvolvida para demonstrar como
-          uma plataforma web pode apresentar
-          ações comunitárias e orientar
-          pessoas interessadas em contribuir.
-        </p>
-
-      </div>
-
-    </section>
-
-
-    <!-- MISSÃO E PARTICIPAÇÃO -->
-
-    <section
-      class="container espaco"
-      aria-label="Missão e participação">
-
-      <div class="grid-12">
-
-        <article class="col-6">
-
-          <h2>
-            Nossa missão
-          </h2>
-
-          <p>
-            Conectar pessoas, divulgar
-            iniciativas solidárias e ampliar
-            o acesso a oportunidades de
-            participação social na cidade
-            de São Paulo.
-          </p>
-
-        </article>
-
-
-        <article class="col-6">
-
-          <h2>
-            Como participar
-          </h2>
-
-          <p>
-            Você pode conhecer as campanhas
-            de doação, descobrir atividades
-            de voluntariado e acessar o
-            formulário demonstrativo de
-            cadastro.
-          </p>
-
-          <a class="botao" href="cadastro.html">
-            Quero participar
-          </a>
-
-        </article>
-
-      </div>
-
-    </section>
+    <p>Carregando conteúdo...</p>
 
   </main>
-
-
-  <!-- RODAPÉ INSTITUCIONAL -->
 
   <footer class="rodape">
 
@@ -288,35 +106,26 @@
         <h2>Contato</h2>
 
         <address>
-
-          São Paulo – SP
-
-          <br>
+          São Paulo – SP<br>
 
           E-mail ilustrativo:
 
           <a href="mailto:contato@conectasocial.example">
             contato@conectasocial.example
           </a>
-
         </address>
 
       </div>
 
-
       <div>
-
-        <p>
-          Conecta Social
-          <br>
+        <p>Conecta Social<br>
           Projeto acadêmico fictício • 2026
         </p>
 
         <p>
-          Desenvolvido para fins de
-          aprendizagem em Front-End.
+          Desenvolvido para fins de aprendizagem
+          em Front-End.
         </p>
-
       </div>
 
     </div>
@@ -324,5 +133,4 @@
   </footer>
 
 </body>
-
 </html>
